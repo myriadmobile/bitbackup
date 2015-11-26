@@ -1,0 +1,4 @@
+boto3==1.2.2
+colorama==0.3.3
+requests==2.8.1
+workerpool==0.9.4

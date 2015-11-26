@@ -1,0 +1,14 @@
+[Unit]
+Description=bitbackup
+
+[Service]
+EnvironmentFile=/etc/environment
+Restart=on-failure
+RestartSec=300
+StartLimitBurst=5
+StartLimitInterval=3600
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker rm -f bitbackup
+ExecStartPre=/usr/bin/docker pull myriadmobile/bitbackup
+ExecStart=/bin/sh -c "docker run --name bitbackup myriadmobile/bitbackup --bb-username REPLACE_ME --bb-password REPLACE_ME --s3-key REPLACE_ME --s3-secret REPLACE_ME --s3-bucket REPLACE_ME"
+ExecStopPost=-/usr/bin/docker rm -f bitbackup

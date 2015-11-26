@@ -1,0 +1,8 @@
+[Unit]
+Description=bitbackup-timer
+
+[Timer]
+OnCalendar=daily
+
+[X-Fleet]
+X-ConditionMachineOf=bitbackup.service
